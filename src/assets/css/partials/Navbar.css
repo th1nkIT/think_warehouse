@@ -1,0 +1,52 @@
+/* Navbar CSS */
+    .body .main .navbars {
+        padding: .5rem 2%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+    }
+
+    .body .main .navbars .navbars-extra {
+        display: flex;
+        align-items: center;
+    }
+
+    .body .main .navbars .navbars-extra button {
+        padding: .3rem;
+        background: none;
+        border: 1px solid #CCCCCC;
+        color: #808080;
+        font-size: 1rem;
+        border-radius: .3rem 0 0 .3rem;
+    }
+
+    .body .main .navbars .navbars-extra form input {
+        padding: .39rem .2rem;
+        border: 1px solid #CCCCCC;
+        border-radius: 0 .3rem .3rem 0;
+        width: 20rem;
+        font-family: 'urbanist', sans-serif;
+    }
+
+    .body .main .navbars .navbars-profil {
+        display: flex;
+        align-items: center;
+    }
+
+    .body .main .navbars .navbars-profil button {
+        margin: 0 .5rem;
+        border: none;
+        background: none;
+        font-size: 1rem;
+        color: black;
+    }
+
+    .body .main .navbars .navbars-profil button img {
+        width: 2rem;
+        height: 2rem;
+        object-fit: cover;
+        border-radius: 1rem;
+        font-size: 1.3rem;
+    }
+/* Navbar CSS */

@@ -1,7 +1,30 @@
-import axios from 'axios';
+import axios from "axios";
 
-const Api = axios.create({
-    baseURL: 'https://app-o4tlf7ol3q-et.a.run.app/'
-});
+const defaultOptions = {
+  baseURL: `${import.meta.env.VITE_HOST_API}`,
+  headers: {
+    "Content-type": "application/json",
+  },
+};
 
-export default Api;
+const TokenizedAxios = (() => {
+  const instance = axios.create(defaultOptions);
+
+  // Set the AUTH token for any request
+  instance.interceptors.request.use(function (config) {
+    const token = localStorage.getItem("admin_token");
+    config.headers.token = token ? `${token}` : "";
+
+    return config;
+  });
+
+  return instance;
+})();
+
+export const Axios = (() => {
+  const instance = axios.create(defaultOptions);
+
+  return instance;
+})();
+
+export default TokenizedAxios;

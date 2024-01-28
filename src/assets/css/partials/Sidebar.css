@@ -1,0 +1,57 @@
+/* Sidebar CSS */
+    .body .sidebars {
+        width: 25%;
+        min-height: 100vh;
+        background-color: var(--primary);
+    }
+
+    .body .sidebars .logo-icon {
+        padding: 2rem 0 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .body .sidebars .logo-icon a {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .body .sidebars .sidebars-nav {
+        padding: 0 1rem;
+    }
+
+    .body .sidebars .sidebars-nav .side-bar {
+        padding: .5rem;
+    }
+
+    .body .sidebars .sidebars-nav .side-bar ul li {
+        margin: 1.2rem 0;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .body .sidebars .sidebars-nav .side-bar ul li a {
+        padding: .5rem 1rem;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .body .sidebars .sidebars-nav .side-bar ul li a i {
+        font-size: 1.2rem;
+    }
+
+    .body .sidebars .sidebars-nav .side-bar ul li .active {
+        padding: .5rem 1rem;
+        background-color: var(--secondary);
+        border-radius: 10px;
+    }
+
+    .body .sidebars .sidebars-nav hr {
+        color: black;
+    }
+/* Sidebar CSS */

@@ -1,0 +1,3034 @@
+{
+	"info": {
+		"_postman_id": "65c84356-1265-4f40-8e5d-827cdab537bd",
+		"name": "Think Warehouse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28432925"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"item": [
+				{
+					"name": "Auth Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"{",
+									"    var json = pm.response.json();",
+									"    pm.environment.set(\"token\", json.data.token);",
+									"    pm.environment.set(\"refresh_token\", json.data.refresh_token)",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_name\":\"{{app_name}}\",\n    \"app_key\":\"{{app_key}}\",\n    \"device_id\":\"postman-001\",\n    \"device_type\":\"postman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/token/auth",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"token",
+								"auth"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Auth Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"app_name\":\"wit-dev\",\n    \"app_key\":\"w1t-d3V\",\n    \"device_id\":\"postman-001\",\n    \"device_type\":\"postman\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/token/auth",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"token",
+										"auth"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 31 May 2022 04:59:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "661"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"name\": \"wit-dev\",\n        \"device_id\": \"postman-001\",\n        \"device_type\": \"postman\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfbmFtZSI6IndpdC1kZXYiLCJkZXZpY2VfaWQiOiJwb3N0bWFuLTAwMSIsImRldmljZV90eXBlIjoicG9zdG1hbiIsImV4cCI6MTY1Mzk3MzE1OX0.ewVl5Mx6diuBit3xPYB7hzUCEH-ETkkAkUpD-D1oijw\",\n        \"token_expired\": \"2022-05-31T04:59:19.812903Z\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfbmFtZSI6IndpdC1kZXYiLCJkZXZpY2VfaWQiOiJwb3N0bWFuLTAwMSIsImRldmljZV90eXBlIjoicG9zdG1hbiIsImV4cCI6MTY1Mzk3MzE1OX0.ewVl5Mx6diuBit3xPYB7hzUCEH-ETkkAkUpD-D1oijw\",\n        \"refresh_token_expired\": \"2022-05-31T04:59:19.812976Z\",\n        \"is_login\": false,\n        \"user_login\": \"\"\n    },\n    \"message\": \"Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "refresh-token",
+								"value": "{{refresh_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/token/refresh",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"token",
+								"refresh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Refresh Token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "refresh-token",
+										"value": "{{refresh_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/token/refresh",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"token",
+										"refresh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Jun 2022 09:49:02 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "661"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"name\": \"wit-dev\",\n        \"device_id\": \"postman-001\",\n        \"device_type\": \"postman\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfbmFtZSI6IndpdC1kZXYiLCJkZXZpY2VfaWQiOiJwb3N0bWFuLTAwMSIsImRldmljZV90eXBlIjoicG9zdG1hbiIsImV4cCI6MTY1NDg1NDU0Mn0.LkPFyQwz5G0f7R0Dn-q7vGwEKqgZUtcqkO2UTQXoGnw\",\n        \"token_expired\": \"2022-06-10T09:49:02.263762Z\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfbmFtZSI6IndpdC1kZXYiLCJkZXZpY2VfaWQiOiJwb3N0bWFuLTAwMSIsImRldmljZV90eXBlIjoicG9zdG1hbiIsImV4cCI6MTY4NjMyNTc0Mn0.VGEWTjV576yUG0UGw3ueiBQhNsieSNwlqUFI--JN8hM\",\n        \"refresh_token_expired\": \"2023-06-09T15:49:02.263829Z\",\n        \"is_login\": false,\n        \"user_login\": \"\"\n    },\n    \"message\": \"Success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "Backoffice",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@think.it\",\n    \"password\": \"wit.id\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/authorization/backoffice/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"authorization",
+										"backoffice",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"admin@wit.id\",\n    \"password\": \"wit.id\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/authorization/backoffice/login",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"authorization",
+												"backoffice",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 09:49:40 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "367"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": \"31eb7f5b-1ddd-4746-9930-efa89951e8c3\",\n        \"name\": \"Super Admin WIT\",\n        \"profile_picture_image_url\": null,\n        \"phone\": \"+6281122334455\",\n        \"email\": \"admin@wit.id\",\n        \"role\": {\n            \"role_id\": 1,\n            \"role_name\": \"Super Admin WIT\"\n        },\n        \"is_active\": true,\n        \"created_at\": \"2022-06-09T09:14:15.17506Z\",\n        \"created_by\": \"System\",\n        \"updated_at\": null,\n        \"updated_by\": null,\n        \"last_login\": null\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/authorization/backoffice/logout",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"authorization",
+										"backoffice",
+										"logout"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Logout",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/authorization/backoffice/logout",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"authorization",
+												"backoffice",
+												"logout"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 09:49:51 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Handheld",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"user@wit.id\",\n    \"password\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/authorization/handheld/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"authorization",
+										"handheld",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"user@wit.id\",\n    \"password\": \"12345\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/authorization/handheld/login",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"authorization",
+												"handheld",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:03:52 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "316"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": \"8de6b5f2-943c-40b3-80f9-110640182d36\",\n        \"name\": \"WIT\",\n        \"profile_picture_image_url\": null,\n        \"phone\": \"+6281122334455\",\n        \"email\": \"user@wit.id\",\n        \"gender\": \"male\",\n        \"address\": \"Bandung\",\n        \"is_active\": true,\n        \"fcm_token\": null,\n        \"created_at\": \"2022-06-09T10:03:38.87495Z\",\n        \"updated_at\": null,\n        \"last_login\": null\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/authorization/handheld/logout",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"authorization",
+										"handheld",
+										"logout"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Logout",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/authorization/handheld/logout",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"authorization",
+												"handheld",
+												"logout"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:03:57 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Backoffice",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Profile",
+							"item": [
+								{
+									"name": "Get My Profile",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/user-backoffice/profile",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"profile"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Get My Profile",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "token",
+														"value": "{{token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{host}}/user-backoffice/profile",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"user-backoffice",
+														"profile"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=UTF-8"
+												},
+												{
+													"key": "Vary",
+													"value": "Origin"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 09 Jun 2022 09:50:17 GMT"
+												},
+												{
+													"key": "Content-Length",
+													"value": "392"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"data\": {\n        \"id\": \"31eb7f5b-1ddd-4746-9930-efa89951e8c3\",\n        \"name\": \"Super Admin WIT\",\n        \"profile_picture_image_url\": null,\n        \"phone\": \"+6281122334455\",\n        \"email\": \"admin@wit.id\",\n        \"role\": {\n            \"role_id\": 1,\n            \"role_name\": \"Super Admin WIT\"\n        },\n        \"is_active\": true,\n        \"created_at\": \"2022-06-09T09:14:15.17506Z\",\n        \"created_by\": \"System\",\n        \"updated_at\": null,\n        \"updated_by\": null,\n        \"last_login\": \"2022-06-09T09:50:13.438494Z\"\n    },\n    \"message\": \"Success\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update My Profile",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Super Admin WIT\",\n    \"profile_picture_image_url\": \"\",\n    \"phone\": \"+6281122334456\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-backoffice/profile",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"profile"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Update My Profile",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "token",
+														"value": "{{token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"Super Admin WIT\",\n    \"profile_picture_image_url\": \"\",\n    \"phone\": \"+6281122334456\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/user-backoffice/profile",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"user-backoffice",
+														"profile"
+													]
+												}
+											},
+											"_postman_previewlanguage": "Text",
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "Change Password",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"wit.id\",\n    \"new_password\": \"wit.id(update)\",\n    \"confirm_new_password\": \"wit.id(update)\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-backoffice/profile/change-password",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"profile",
+												"change-password"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Change Password",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "token",
+														"value": "{{token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"old_password\": \"wit.id\",\n    \"new_password\": \"wit.id(update)\",\n    \"confirm_new_password\": \"wit.id(update)\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/user-backoffice/profile/change-password",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"user-backoffice",
+														"profile",
+														"change-password"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=UTF-8"
+												},
+												{
+													"key": "Vary",
+													"value": "Origin"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 09 Jun 2022 10:02:46 GMT"
+												},
+												{
+													"key": "Content-Length",
+													"value": "34"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"data\": null,\n    \"message\": \"Success\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Create User Backoffice",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Owner Laundry\",\n    \"profile_picture_image_url\":\"\",\n    \"phone\":\"081122334456\",\n    \"email\":\"owner@laundry.com\",\n    \"role_id\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user-backoffice/create",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-backoffice",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create User Backoffice",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\":\"Staff WIT\",\n    \"profile_picture_image_url\":\"\",\n    \"phone\":\"081122334456\",\n    \"email\":\"staff@wit.id\",\n    \"role_id\":4\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-backoffice/create",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:01:12 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "322"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": \"9419b923-6403-4fb4-a433-203cb19c2340\",\n        \"name\": \"Staff WIT\",\n        \"profile_picture_image_url\": null,\n        \"phone\": \"+6281122334456\",\n        \"email\": \"staff@wit.id\",\n        \"role\": {\n            \"role_id\": 4,\n            \"role_name\": \"Staff WIT\"\n        },\n        \"password\": \"wit.id\",\n        \"is_active\": true,\n        \"created_at\": \"2022-06-09T10:01:12.554781Z\",\n        \"created_by\": \"System\"\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Active User Backoffice",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user-backoffice/is-active/:user_backoffice_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-backoffice",
+										"is-active",
+										":user_backoffice_id"
+									],
+									"variable": [
+										{
+											"key": "user_backoffice_id",
+											"value": "{{user_backoffice_id}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Active User Backoffice",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/user-backoffice/is-active/:user_backoffice_id",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"is-active",
+												":user_backoffice_id"
+											],
+											"variable": [
+												{
+													"key": "user_backoffice_id",
+													"value": "{{user_backoffice_id}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:01:52 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete User Backoffice",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user-backoffice/:user_backoffice_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-backoffice",
+										":user_backoffice_id"
+									],
+									"variable": [
+										{
+											"key": "user_backoffice_id",
+											"value": "{{user_backoffice_id}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete User Backoffice",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/user-backoffice/:user_backoffice_id",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												":user_backoffice_id"
+											],
+											"variable": [
+												{
+													"key": "user_backoffice_id",
+													"value": "{{user_backoffice_id}}"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "List User Backoffice",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"set_name\": false,\n        \"name\": \"\",\n        \"set_phone\": false,\n        \"phone\": \"\",\n        \"set_email\": false,\n        \"email\": \"\",\n        \"set_role_id\": false,\n        \"role_id\": 0,\n        \"set_is_active\": false,\n        \"is_active\": false\n    },\n    \"limit\": 10,\n    \"page\": 1,\n    \"order\": \"created_at\",\n    \"sort\": \"DESC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user-backoffice/list",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-backoffice",
+										"list"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List User Backoffice",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"filter\": {\n        \"set_name\": false,\n        \"name\": \"\",\n        \"set_phone\": false,\n        \"phone\": \"\",\n        \"set_email\": false,\n        \"email\": \"\",\n        \"set_role_id\": false,\n        \"role_id\": 0,\n        \"set_is_active\": false,\n        \"is_active\": false\n    },\n    \"limit\": 10,\n    \"page\": 1,\n    \"order\": \"created_at\",\n    \"sort\": \"DESC\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-backoffice/list",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"list"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:02:04 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "839"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": \"9419b923-6403-4fb4-a433-203cb19c2340\",\n            \"name\": \"Staff WIT\",\n            \"profile_picture_image_url\": null,\n            \"phone\": \"+6281122334456\",\n            \"email\": \"staff@wit.id\",\n            \"role\": {\n                \"role_id\": 3,\n                \"role_name\": \"Staff WIT\"\n            },\n            \"is_active\": false,\n            \"created_at\": \"2022-06-09T10:01:12.554781Z\",\n            \"created_by\": \"System\",\n            \"updated_at\": \"2022-06-09T10:01:52.406781Z\",\n            \"updated_by\": \"31eb7f5b-1ddd-4746-9930-efa89951e8c3\",\n            \"last_login\": null\n        },\n        {\n            \"id\": \"31eb7f5b-1ddd-4746-9930-efa89951e8c3\",\n            \"name\": \"Super Admin WIT\",\n            \"profile_picture_image_url\": null,\n            \"phone\": \"+6281122334455\",\n            \"email\": \"admin@wit.id\",\n            \"role\": {\n                \"role_id\": 1,\n                \"role_name\": \"Super Admin WIT\"\n            },\n            \"is_active\": true,\n            \"created_at\": \"2022-06-09T09:14:15.17506Z\",\n            \"created_by\": \"System\",\n            \"updated_at\": null,\n            \"updated_by\": null,\n            \"last_login\": \"2022-06-09T09:50:13.438494Z\"\n        }\n    ],\n    \"current_page\": 1,\n    \"limit\": 10,\n    \"total_page\": 1,\n    \"total_data\": 2,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get User Backoffice",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user-backoffice/:user_backoffice_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-backoffice",
+										":user_backoffice_id"
+									],
+									"variable": [
+										{
+											"key": "user_backoffice_id",
+											"value": "{{user_backoffice_id}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get User Backoffice",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/user-backoffice/:user_backoffice_id",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												":user_backoffice_id"
+											],
+											"variable": [
+												{
+													"key": "user_backoffice_id",
+													"value": "{{user_backoffice_id}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:02:27 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "415"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": \"9419b923-6403-4fb4-a433-203cb19c2340\",\n        \"name\": \"Staff WIT\",\n        \"profile_picture_image_url\": null,\n        \"phone\": \"+6281122334456\",\n        \"email\": \"staff@wit.id\",\n        \"role\": {\n            \"role_id\": 3,\n            \"role_name\": \"Staff WIT\"\n        },\n        \"is_active\": true,\n        \"created_at\": \"2022-06-09T10:01:12.554781Z\",\n        \"created_by\": \"System\",\n        \"updated_at\": \"2022-06-09T10:02:16.511514Z\",\n        \"updated_by\": \"31eb7f5b-1ddd-4746-9930-efa89951e8c3\",\n        \"last_login\": null\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "User Handheld",
+					"item": [
+						{
+							"name": "Update Active User Handheld",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/bo/user-handheld/is-active/:user_handheld_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"bo",
+										"user-handheld",
+										"is-active",
+										":user_handheld_id"
+									],
+									"variable": [
+										{
+											"key": "user_handheld_id",
+											"value": "{{user_handheld_id}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Active User Handheld",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/bo/user-handheld/is-active/:user_handheld_id",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"bo",
+												"user-handheld",
+												"is-active",
+												":user_handheld_id"
+											],
+											"variable": [
+												{
+													"key": "user_handheld_id",
+													"value": "{{user_handheld_id}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:06:23 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete User Handheld",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/bo/user-handheld/:user_handheld_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"bo",
+										"user-handheld",
+										":user_handheld_id"
+									],
+									"variable": [
+										{
+											"key": "user_handheld_id",
+											"value": "{{user_handheld_id}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete User Handheld",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/bo/user-handheld/:user_handheld_id",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"bo",
+												"user-handheld",
+												":user_handheld_id"
+											],
+											"variable": [
+												{
+													"key": "user_handheld_id",
+													"value": "{{user_handheld_id}}"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "List User Handheld",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"set_name\": false,\n        \"name\": \"\",\n        \"set_phone\": false,\n        \"phone\": \"\",\n        \"set_email\": false,\n        \"email\": \"\",\n        \"set_gender\": false,\n        \"gender\": \"\",\n        \"set_address\": false,\n        \"address\": \"\",\n        \"set_is_active\": false,\n        \"is_active\": false\n    },\n    \"limit\": 10,\n    \"page\": 1,\n    \"order\": \"created_at\",\n    \"sort\": \"DESC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/bo/user-handheld/list",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"bo",
+										"user-handheld",
+										"list"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List User Handheld",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"filter\": {\n        \"set_name\": false,\n        \"name\": \"\",\n        \"set_phone\": false,\n        \"phone\": \"\",\n        \"set_email\": false,\n        \"email\": \"\",\n        \"set_gender\": false,\n        \"gender\": \"\",\n        \"set_address\": false,\n        \"address\": \"\",\n        \"set_is_active\": false,\n        \"is_active\": false\n    },\n    \"limit\": 10,\n    \"page\": 1,\n    \"order\": \"created_at\",\n    \"sort\": \"DESC\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/bo/user-handheld/list",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"bo",
+												"user-handheld",
+												"list"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:05:50 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "431"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": \"8de6b5f2-943c-40b3-80f9-110640182d36\",\n            \"name\": \"WIT\",\n            \"profile_picture_image_url\": null,\n            \"phone\": \"+6281122334456\",\n            \"email\": \"user@wit.id\",\n            \"gender\": \"male\",\n            \"address\": \"Bandung\",\n            \"is_active\": true,\n            \"fcm_token\": \"abcdefg\",\n            \"created_at\": \"2022-06-09T10:03:38.87495Z\",\n            \"updated_at\": \"2022-06-09T10:05:20.472768Z\",\n            \"last_login\": \"2022-06-09T10:04:02.874434Z\"\n        }\n    ],\n    \"current_page\": 1,\n    \"limit\": 10,\n    \"total_page\": 1,\n    \"total_data\": 1,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get User Handheld",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/bo/user-handheld/:user_handheld_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"bo",
+										"user-handheld",
+										":user_handheld_id"
+									],
+									"variable": [
+										{
+											"key": "user_handheld_id",
+											"value": "{{user_handheld_id}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get User Handheld",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/bo/user-handheld/:user_handheld_id",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"bo",
+												"user-handheld",
+												":user_handheld_id"
+											],
+											"variable": [
+												{
+													"key": "user_handheld_id",
+													"value": "{{user_handheld_id}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:06:16 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "371"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": \"8de6b5f2-943c-40b3-80f9-110640182d36\",\n        \"name\": \"WIT\",\n        \"profile_picture_image_url\": null,\n        \"phone\": \"+6281122334456\",\n        \"email\": \"user@wit.id\",\n        \"gender\": \"male\",\n        \"address\": \"Bandung\",\n        \"is_active\": true,\n        \"fcm_token\": \"abcdefg\",\n        \"created_at\": \"2022-06-09T10:03:38.87495Z\",\n        \"updated_at\": \"2022-06-09T10:05:20.472768Z\",\n        \"last_login\": \"2022-06-09T10:04:02.874434Z\"\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Role",
+					"item": [
+						{
+							"name": "Create User Backoffice Role",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Staff WIT\",\n    \"level\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user-backoffice/role",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-backoffice",
+										"role"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create User Backoffice Role",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Staff\",\n    \"level\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-backoffice/role",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"role"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 09:51:49 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "194"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"Staff\",\n        \"level\": 2,\n        \"created_at\": \"2022-06-09T09:51:49.932852Z\",\n        \"created_by\": \"31eb7f5b-1ddd-4746-9930-efa89951e8c3\",\n        \"updated_at\": null,\n        \"updated_by\": null\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User Backoffice Role",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Administrator\",\n    \"level\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user-backoffice/role/:role_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-backoffice",
+										"role",
+										":role_id"
+									],
+									"variable": [
+										{
+											"key": "role_id",
+											"value": "{{role_id}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update User Backoffice Role",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Staff Update\",\n    \"level\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-backoffice/role/:role_id",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"role",
+												":role_id"
+											],
+											"variable": [
+												{
+													"key": "role_id",
+													"value": "{{role_id}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 09:52:04 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "229"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Staff Update\",\n        \"level\": 2,\n        \"created_at\": \"2022-06-09T09:14:15.16776Z\",\n        \"created_by\": \"System\",\n        \"updated_at\": \"2022-06-09T09:52:04.034699Z\",\n        \"updated_by\": \"31eb7f5b-1ddd-4746-9930-efa89951e8c3\"\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete User Backoffice Role",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user-backoffice/role/:role_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-backoffice",
+										"role",
+										":role_id"
+									],
+									"variable": [
+										{
+											"key": "role_id",
+											"value": "{{role_id}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete User Backoffice Role",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/user-backoffice/role/:role_id",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"role",
+												":role_id"
+											],
+											"variable": [
+												{
+													"key": "role_id",
+													"value": "{{role_id}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 09:52:47 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get User Backoffice Role",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user-backoffice/role/:role_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-backoffice",
+										"role",
+										":role_id"
+									],
+									"variable": [
+										{
+											"key": "role_id",
+											"value": "{{role_id}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get User Backoffice Role",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/user-backoffice/role/:role_id",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"role",
+												":role_id"
+											],
+											"variable": [
+												{
+													"key": "role_id",
+													"value": "{{role_id}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 09:53:37 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "229"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Staff Update\",\n        \"level\": 2,\n        \"created_at\": \"2022-06-09T09:14:15.16776Z\",\n        \"created_by\": \"System\",\n        \"updated_at\": \"2022-06-09T09:52:04.034699Z\",\n        \"updated_by\": \"31eb7f5b-1ddd-4746-9930-efa89951e8c3\"\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "List User Backoffice Role",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"set_name\": false,\n        \"name\": \"\",\n        \"set_level\": false,\n        \"level\": 0\n    },\n    \"limit\": 10,\n    \"page\": 1,\n    \"order\": \"created_at\",\n    \"sort\": \"DESC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user-backoffice/role/list",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-backoffice",
+										"role",
+										"list"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List User Backoffice Role",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"filter\": {\n        \"set_name\": false,\n        \"name\": \"\",\n        \"set_level\": false,\n        \"level\": 0\n    },\n    \"limit\": 10,\n    \"page\": 1,\n    \"order\": \"created_at\",\n    \"sort\": \"DESC\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-backoffice/role/list",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-backoffice",
+												"role",
+												"list"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 09:54:12 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "290"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Administrator\",\n            \"level\": 1,\n            \"created_at\": \"2022-06-09T09:14:15.16776Z\",\n            \"created_by\": \"System\",\n            \"updated_at\": \"2022-06-09T09:54:05.510958Z\",\n            \"updated_by\": \"31eb7f5b-1ddd-4746-9930-efa89951e8c3\"\n        }\n    ],\n    \"current_page\": 1,\n    \"limit\": 10,\n    \"total_page\": 1,\n    \"total_data\": 1,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Handheld",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Create User Handheld",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"WIT\",\n    \"profile_picture_image_url\":\"\",\n    \"phone\":\"081122334455\",\n    \"email\":\"user@wit.id\",\n    \"gender\":\"male\",\n    \"address\":\"Bandung\",\n    \"password\":\"12345\",\n    \"confirm_password\":\"12345\",\n    \"fcm_token\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user-handheld/create",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-handheld",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create User Handheld",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\":\"WIT\",\n    \"profile_picture_image_url\":\"\",\n    \"phone\":\"081122334455\",\n    \"email\":\"user@wit.id\",\n    \"gender\":\"male\",\n    \"address\":\"Bandung\",\n    \"password\":\"12345\",\n    \"confirm_password\":\"12345\",\n    \"fcm_token\":\"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-handheld/create",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-handheld",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:03:38 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "316"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": \"8de6b5f2-943c-40b3-80f9-110640182d36\",\n        \"name\": \"WIT\",\n        \"profile_picture_image_url\": null,\n        \"phone\": \"+6281122334455\",\n        \"email\": \"user@wit.id\",\n        \"gender\": \"male\",\n        \"address\": \"Bandung\",\n        \"is_active\": true,\n        \"fcm_token\": null,\n        \"created_at\": \"2022-06-09T10:03:38.87495Z\",\n        \"updated_at\": null,\n        \"last_login\": null\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get My Profile",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user-handheld/profile",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-handheld",
+										"profile"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get My Profile",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/user-handheld/profile",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-handheld",
+												"profile"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:04:07 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "341"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": \"8de6b5f2-943c-40b3-80f9-110640182d36\",\n        \"name\": \"WIT\",\n        \"profile_picture_image_url\": null,\n        \"phone\": \"+6281122334455\",\n        \"email\": \"user@wit.id\",\n        \"gender\": \"male\",\n        \"address\": \"Bandung\",\n        \"is_active\": true,\n        \"fcm_token\": null,\n        \"created_at\": \"2022-06-09T10:03:38.87495Z\",\n        \"updated_at\": null,\n        \"last_login\": \"2022-06-09T10:04:02.874434Z\"\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update My Profile",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"WIT Update\",\n    \"profile_picture_image_url\":\"\",\n    \"phone\":\"081122334456\",\n    \"gender\":\"female\",\n    \"address\":\"Bandung Update\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user-handheld/profile",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-handheld",
+										"profile"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update My Profile",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\":\"WIT Update\",\n    \"profile_picture_image_url\":\"\",\n    \"phone\":\"081122334456\",\n    \"gender\":\"female\",\n    \"address\":\"Bandung Update\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-handheld/profile",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-handheld",
+												"profile"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:04:24 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "382"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": \"8de6b5f2-943c-40b3-80f9-110640182d36\",\n        \"name\": \"WIT Update\",\n        \"profile_picture_image_url\": null,\n        \"phone\": \"+6281122334456\",\n        \"email\": \"user@wit.id\",\n        \"gender\": \"female\",\n        \"address\": \"Bandung Update\",\n        \"is_active\": true,\n        \"fcm_token\": null,\n        \"created_at\": \"2022-06-09T10:03:38.87495Z\",\n        \"updated_at\": \"2022-06-09T10:04:24.309566Z\",\n        \"last_login\": \"2022-06-09T10:04:02.874434Z\"\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update FCM",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fcm\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user-handheld/profile/fcm",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-handheld",
+										"profile",
+										"fcm"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update FCM",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fcm\":\"abcdefg\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-handheld/profile/fcm",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-handheld",
+												"profile",
+												"fcm"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:04:55 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "371"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": \"8de6b5f2-943c-40b3-80f9-110640182d36\",\n        \"name\": \"WIT\",\n        \"profile_picture_image_url\": null,\n        \"phone\": \"+6281122334456\",\n        \"email\": \"user@wit.id\",\n        \"gender\": \"male\",\n        \"address\": \"Bandung\",\n        \"is_active\": true,\n        \"fcm_token\": \"abcdefg\",\n        \"created_at\": \"2022-06-09T10:03:38.87495Z\",\n        \"updated_at\": \"2022-06-09T10:04:55.870187Z\",\n        \"last_login\": \"2022-06-09T10:04:02.874434Z\"\n    },\n    \"message\": \"Success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"12345\",\n    \"new_password\": \"123456\",\n    \"confirm_new_password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user-handheld/profile/change-password",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-handheld",
+										"profile",
+										"change-password"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"12345\",\n    \"new_password\": \"123456\",\n    \"confirm_new_password\": \"123456\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user-handheld/profile/change-password",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user-handheld",
+												"profile",
+												"change-password"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 Jun 2022 10:05:07 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Success\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "List Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"set_name\": false,\n        \"name\": \"\"\n    },\n    \"limit\": 10,\n    \"page\": 1,\n    \"order\": \"created_at\",\n    \"sort\": \"DESC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/product",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Makanan Kering\",\n    \"profile_picture_url\":\"Makanan Keringg\",\n    \"description\":\"Makanan Kering\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/product/create",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reactive Product",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/product/reactive/:guid",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product",
+										"reactive",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "e4a81753-ca10-442c-98a2-7fa455ac80d5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Makanan CIRENG\",\n    \"profile_picture_url\":\"Makanan BASO\",\n    \"description\":\"Makanan TAHU\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/product/:guid",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "e4a81753-ca10-442c-98a2-7fa455ac80d5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Makanan CIRENG\",\n    \"profile_picture_url\":\"Makanan BASO\",\n    \"description\":\"Makanan TAHU\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/product/:guid",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "16043b57-3c00-420f-81c7-43479e9fbc17"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/product/:guid",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "e4a81753-ca10-442c-98a2-7fa455ac80d5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product Category",
+					"item": [
+						{
+							"name": "List Product Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"set_name\": false,\n        \"name\": \"\",\n        \"set_active\": false,\n        \"active\":\"\"\n    },\n    \"limit\": 10,\n    \"page\": 1,\n    \"order\": \"created_at\",\n    \"sort\": \"DESC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/product-category",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Product Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Makanan Kering\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/product-category/create",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product-category",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reactive Product Category",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/product-category/reactive/:guid",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product-category",
+										"reactive",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "f2f84a66-475d-4e31-9b82-3af1ef975147"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product Category",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"KECAP SEDAP\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/product-category/:guid",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product-category",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "51c93d42-9e00-41fa-988e-9200b52fc173"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product Category",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/product-category/:guid",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product-category",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "51c93d42-9e00-41fa-988e-9200b52fc173"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product Category",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/product-category/:guid",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"product-category",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "f2f84a66-475d-4e31-9b82-3af1ef975147"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Warehouse",
+			"item": [
+				{
+					"name": "List Warehouse",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n        \"set_name\": false,\n        \"name\": \"\",\n        \"set_warehouse_code\": false,\n        \"warehouse_code\":\"\",\n        \"set_active\": false,\n        \"active\":\"\"\n    },\n    \"limit\": 10,\n    \"page\": 1,\n    \"order\": \"created_at\",\n    \"sort\": \"DESC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/warehouse",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"warehouse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Warehouse",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"warehouse_code\":\"WARE-BDG-02\",\n   \"name\":\"Waraehouse Bandung\",\n   \"address\":\"Jl. Bandung\",\n   \"phone_number\":\"+621234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/warehouse/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"warehouse",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reactive Warehouse",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/warehouse/reactive/:guid",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"warehouse",
+								"reactive",
+								":guid"
+							],
+							"variable": [
+								{
+									"key": "guid",
+									"value": "fbe87d40-ce13-4e53-935c-3b073b5300a3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Warehouse",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\":\"Warehouse Cabang Bandung\",\n   \"address\":\"Jl. Cabang Bandung\",\n   \"phone_number\":\"+62123321123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/warehouse/:guid",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"warehouse",
+								":guid"
+							],
+							"variable": [
+								{
+									"key": "guid",
+									"value": "fbe87d40-ce13-4e53-935c-3b073b5300a3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Warehouse",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Makanan CIRENG\",\n    \"profile_picture_url\":\"Makanan BASO\",\n    \"description\":\"Makanan TAHU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/warehouse/:guid",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"warehouse",
+								":guid"
+							],
+							"variable": [
+								{
+									"key": "guid",
+									"value": "fbe87d40-ce13-4e53-935c-3b073b5300a3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Warehouse",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/warehouse/:guid",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"warehouse",
+								":guid"
+							],
+							"variable": [
+								{
+									"key": "guid",
+									"value": "fbe87d40-ce13-4e53-935c-3b073b5300a3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

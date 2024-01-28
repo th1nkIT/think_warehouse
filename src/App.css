@@ -1,0 +1,37 @@
+/* Variable CSS */
+    :root {
+        --primary: #194A67;
+        --secondary: #3295CD;
+        --bg: #F2F2F2;
+    }
+/* Variable CSS */
+
+/* Tools CSS */
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style-type: none;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'urbanist', sans-serif;
+        background-color: var(--bg);
+    }
+/* Tools CSS */
+
+/* Base CSS */
+    .body {
+        display: flex;
+    }
+
+    /* Konten Start */
+    .body .main {
+        width: 100%;
+    }
+    /* Konten End */
+/* Base CSS */

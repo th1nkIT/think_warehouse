@@ -1,0 +1,47 @@
+.filter {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    padding: 10px 16px 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 99px;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.filter-vector {
+    flex-shrink: 0;
+    width: 15px;
+    height: 18px;
+    position: relative;
+    overflow: visible;
+}
+
+.filter-text {
+    color: #000000;
+    text-align: left;
+    font-family: "Urbanist-Medium", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    width: 32px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}

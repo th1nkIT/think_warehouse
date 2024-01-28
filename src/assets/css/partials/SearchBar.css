@@ -1,0 +1,48 @@
+.searchbar,
+.searchbar * {
+    box-sizing: border-box;
+}
+
+.searchbar {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 294px;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.searchbar-container {
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.searchbar-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-family: "Urbanist-SemiBold", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333333;
+    /* Warna teks */
+}
+
+.searchbar-vector {
+    width: 17px;
+    height: 17px;
+    fill: #808080;
+    /* Warna vektor */
+}

@@ -1,0 +1,87 @@
+.submit {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+    background-color: #0056b3;
+}
+
+.submit:active {
+    background-color: #003366;
+}
+
+.add-products {
+    font-size: 16px;
+}
+
+.submit {
+    background: #194a67;
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 161px;
+    height: 38px;
+    position: relative;
+    overflow: hidden;
+}
+
+.group {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    position: relative;
+    overflow: visible;
+}
+
+.add-products {
+    color: #ffffff;
+    text-align: center;
+    font-family: "Urbanist-Medium", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status,
+.status * {
+    box-sizing: border-box;
+}
+
+.status-active {
+    background: #05ae84;
+    border-radius: 19px;
+    padding: 7px 15px 7px 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    position: relative;
+    overflow: hidden;
+}
+
+.status-name {
+    color: #ffffff;
+    text-align: center;
+    font-family: "Urbanist-SemiBold", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
